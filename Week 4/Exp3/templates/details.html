@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+
+</head>
+
+<body>
+    {% if ID == "student_id" %}
+    <table border="2" id="student-details-table">
+        <tr>
+            <th>Student Id</th>
+            <th>Course Id</th>
+            <th>Marks</th>
+        </tr>
+        {% for d in data %}
+        <tr>
+            <td>{{d["Student id"]}}</td>
+            <td>{{d[" Course id"]}}</td>
+            <td>{{d[" Marks"]}}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="2" style="text-align:center"> Total Marks </td>
+            <td>{{ Total_Mark }}</td>
+        </tr>
+    </table>
+    <br>
+    <a href="\">Go Back</a>
+    {% elif ID == "course_id" %}
+    <h1>Course Details</h1>
+    <table border="1" cellsapcing="0" style="text-align:center">
+        <thead>
+            <tr>
+                <th>Average Marks</th>
+                <th>Maximum Marks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{avg}}</td>
+                <td>{{max}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <img src="static\histo.PNG"><br>
+    <a href="\">Go Back</a>
+    {% else %}
+    <h1>Wrong Inputs</h1>
+    <p>Something went wrong</p>
+    <a href="\">Go Back</a>
+    {% endif %}
+</body>
+
+</html>
