@@ -1,0 +1,73 @@
+python #python interpreter
+from app import *
+db.create_all() #for creating database
+s1 = Section(section_name = "History)
+db.session.add(s1)
+s1.section_name #section is considered as container that container will have all the changes or operations that you are doing on cli
+'History'
+db.session.commit() #commit the session means commiting all the changes that the session was containing
+
+#for udpate
+
+s1.section_name = "malayalam"
+
+#for closing session
+
+db.session.close
+
+#for adding list of obects
+
+#retrieve information from the database
+
+books = Book.query.filter_by(sect=2).all()
+
+
+>>> for book in books:
+...    print(book.book_name)
+
+#why we are not used filter bcz if we know the primary key we can use the get() method to retreive information directly from the from the database
+
+s1 = Section.query.get(2) # 2 is the primary key for that example
+
+s1.books
+
+[<Book 'WWI']
+
+
+s1 = Section.query.filter_by(section_name = "Mathematics").first() # first object that satisfies the condition
+
+#below no need to know sec value if we use backref
+>>> from app import *
+>>> s1 = Section.query.filter_by(section_name = "Mathemat
+ics").first()
+>>> s1.section_name
+>>> b1 = Book(book_name = "Area of traingle", section = s1)
+>>> b1.section
+< Section 'Mathematics'>
+>>> db.session.add(b1)
+>>> db.session.commit()
+
+
+#for delete from database
+
+>>> b1 = Book.query.get(5)
+>>> b1.book_name
+'colors'
+>>> db.session.delete(b1)
+>>> db.session.commit()
+
+#following are many to many relationship
+
+>>> db.create_all()
+>>> s1 = Section(section_name = "Science")
+>>> s2 = Section(section_name = "Mathematics")
+>>> b1 = Book(book_name = "Mathematics")
+>>> b1 = Book(book_name = "Science and maths vol 1")
+>>> b2 = Book(book_name = "Science and maths vol 2")  
+>>> db.session.add_all([s1,s2,b1,b2])
+>>> db.session.commit()
+>>> s1.books.append(b1) # simply appended book in the the collection then association table will keep track of it
+>>> s1.books.append(b2)
+>>> s2.books.append(b2)
+>>> s2.books.append(b1)
+>>> db.session.commit()

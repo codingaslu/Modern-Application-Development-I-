@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index_Page</title>
+</head>
+
+<body>
+    {%if length==0 %}
+     <h1>Student list</h1>
+     <p>No Student found.Add the Student now!</p>
+     <a href="/student/create">+Add Student</a>
+    {%else%}
+    <table id="all-students">
+        <tr>
+            <th>SNo</th>
+            <th>Roll Number</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Actions</th>
+        </tr>
+        <tr>
+          {%for s in s1%}
+            <td>{{s.student_id}}</td>
+            <td><a href="/student/{{s.student_id}}">{{s.roll_number}}</a></td>
+            <td>{{s.first_name}}</td>
+            <td>{{s.last_name}}</td>
+            <td>
+                <a href="/student/{{s.student_id}}/update" type="button">Update</a>
+                <a href="/student/{{s.student_id}}/delete" type="button">Delete</a>
+            </td>
+        </tr>
+         {%endfor%}
+    </table>
+    {%endif %}
+    <a href='/student/create'><button> + Add Student </button></a>
+</body>
+</html>
