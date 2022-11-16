@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Application</title>
+    <script>
+        function func(){
+            let val = document.getElementById("in").value;
+
+            if (val.length==0){
+                document.getElementById("error").style.display="block";
+                document.getElementById("in").style.border="3px solid red";
+                document.getElementById("in").style.backgroundColor="rgb(255,0,0.4)";
+                document.getElementById("t1").style.visibility="hidden";
+
+            }
+            else if(val < 1 || val >999 ){
+                document.getElementById("error").innerHTML = "Please enter a number between 1 and 999";
+            }
+            else{
+                document.getElementById("error").style.display="none";
+                document.getElementById("in").style.border="1px solid black";
+                document.getElementById("in").style.backgroundColor="white";
+                document.getElementById("t1").style.visibility="visible";
+
+                let collection1 = document.getElementsByClassName("n1");
+                let collection2 = document.getElementsByClassName("n2");
+                for(let i=0,j=1;i<collection1.length;i++,j++){
+                    collection1[i].innerHTML = val;
+                    // collection2[i].innerHTML = val * (i+1);
+                    collection2[i].innerHTML = val * j;
+                }                
+
+            }
+
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+
+    <div style="margin:auto; width : 300px; border: 1px solid green; ">
+
+
+        <h2 style="margin-left: 30px;color: red;font-size: 2em;">Table Application</h2>
+        <!-- <br><br> -->
+
+        <label style="margin-left: 76px;color: blue;font-size: 1.5em;">Enter a Number</label>
+        <br><br>
+
+        <input id="in" type="number" style="margin-left: 66px; border:1px solid black; text-align:center;font: size 1em;">
+        <br><br>
+
+        <button style="margin-left: 100px;font-size: 1.2em;background-color: yellow;"onclick="func()">Generate</button>
+        <br><br>
+
+        <label id ="error" style="font-size: 1.2em;color: red;margin-left:55px;">Please Enter a number</label>
+        <br><br>
+
+        <table id="t1" style="margin: auto;width: 200px;text-align: center; visibility: hidden">
+            <tr>
+                <td class="n1"></td>
+                <td>x</td>
+                <td>1</td>
+                <td>=</td>
+                <td class="n2"></td>
+            </tr>
+            <tr>
+                <td class="n1"></td>
+                <td>x</td>
+                <td>2</td>
+                <td>=</td>
+                <td class="n2"></td>
+            </tr>
+            <tr>
+                <td class="n1"></td>
+                <td>x</td>
+                <td>3</td>
+                <td>=</td>
+                <td class="n2"></td>
+            </tr>
+            <tr>
+                <td class="n1"></td>
+                <td>x</td>
+                <td>4</td>
+                <td>=</td>
+                <td class="n2"></td>
+            </tr>
+            <tr>
+                <td class="n1"></td>
+                <td>x</td>
+                <td>5</td>
+                <td>=</td>
+                <td class="n2"></td>
+            </tr>
+            <tr>
+                <td class="n1"></td>
+                <td>x</td>
+                <td>6</td>
+                <td>=</td>
+                <td class="n2"></td>
+            </tr>
+            <tr>
+                <td class="n1"></td>
+                <td>x</td>
+                <td>7</td>
+                <td>=</td>
+                <td class="n2"></td>
+            </tr>
+            <tr>
+                <td class="n1"></td>
+                <td>x</td>
+                <td>8</td>
+                <td>=</td>
+                <td class="n2"></td>
+            </tr>
+            <tr>
+                <td class="n1"></td>
+                <td>x</td>
+                <td>9</td>
+                <td>=</td>
+                <td class="n2"></td>
+            </tr>
+            <tr>
+                <td class="n1"></td>
+                <td>x</td>
+                <td>10</td>
+                <td>=</td>
+                <td class="n2"></td>
+            </tr>
+        </table>
+
+
+
+    </div>
+
+
+
+</body>
+
+</html>

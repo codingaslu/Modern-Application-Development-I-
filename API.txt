@@ -1,0 +1,66 @@
+If we talk on a very high level, an API let 2 application programs interact each other, or the purpose of an API is to decouple the backend from the frontend. 
+Now, this statement has a lot to understand.
+
+You asked that whatever flask applications you have created so far for the lab assignments is an API or not. Well, it can be an API, 
+but the state in which it is in right now, it may not be suitable to call it an API. 
+The reason being that an API is supposed to return JSON data in general, and not the HTML, as it is quite easy to transmit JSON data over the network.
+
+Now, let me get back to the purpose that I discussed above. i.e., an API is used to decouple the backend from the frontend. 
+Suppose, you own a business and want to create an application for the same. But, you don’t want the application to be limited to web, 
+what I mean by this statement is that you want to create a web as well as the mobile version of the application. 
+Now, in this case, having an API is a better choice, because you can use the same API implementation for the web as well as the mobile version. 
+Not only that, you can use the same API for any other application versions you may be interested in. 
+Now, this helps a lot, because there is one API that lets different versions of your application (web and mobile) to interact with the backend database.
+
+I hope this clears the purpose of creating an API.
+
+Now, let us talk about a real time example of APIs. Let’s take the Airlines as an example. 
+Suppose, you want to book a flight from Delhi to Chennai, you will be required to go to the Airline’s website and make a booking, right? 
+But, is this the only option? I mean, can you book your ticket only viva Airline’s website. The answer is No. 
+There are many 3rd party applications like MakeMyTrip, EaseMyTrip, etc., which offers you the same service. 
+But, the question that comes up here is that how can they access the Airline’s server or the database. 
+Do they have the access to the Airline’s server? No. These 3rd party applications are making use of the API provided by the Airline to allow them booking tickets. 
+This is a real time application of an API.
+
+Please let me know if you have any doubts regarding what I discussed.
+
+
+
+
+
+
+
+The previous answers have already covered most of the main concepts, so I just wanted to add a bit more of a “high level” picture.
+
+Keep in mind that the term API is very general and existed long before people applied it to web development. API means just that - 
+it is an interface provided by the developer of an application that can be used by others to invoke certain functionality. 
+So any time you develop an application that others could potentially use, you will most likely think of exposing functionality in the form of an API, 
+so that others can use your functions without seeing the details of your code.
+
+In this sense, a Web API just takes the same idea (you are developing an application) and allows you to expose that functionality, 
+but without people having to worry about function calls. Instead, they use the HTTP protocol to interact with your application. To do that, 
+there has to be some common convention that both you and the end user will follow: such as how to make a request, how to send the query parameters, 
+how to make sense of the response from the server, etc.
+
+So for something like Cowin, you should think of it as follows: the government wants to maintain a database of vaccinated people, 
+and also provide people a mechanism to find out where they can get vaccinated, book slots etc. So they engage someone to write a backend application for this, 
+and whoever does this has to manage the database connectivity, queries, book-keeping (how many slots available, which ones are free etc.).
+
+Now that they have developed a backend, they would like others to be able to use it - 
+either they might decide that no one else should use it (they will themselves develop the frontend also), 
+or they might decide to open up the interface and make it an API. By doing so, they open up many possibilities for others also to develop useful apps.
+
+In general, there could be two reasons to develop an API:
+
+You have a cool idea for an application, you build the backend, and want others to use it. 
+Examples could be openweathermap, openstreetmap, Cowin etc. Here you want your API to be clean and documented so that others can make sense of it and use it.
+
+You start an application for your own use, but want to scale it, so that more people can use it. 
+You could either tie everything together into a single Flask application, or you could separate it out into a backend and a frontend that communicate with each other using an API. 
+That way, if you want to replace the frontend later, it becomes easy. Note that no one else is using your API - 
+you are the only consumer, but it is still useful because it gives you flexibility.
+
+Now the second reason is something you need to think carefully about - 
+in general, you don’t always need to implement things as APIs - 
+it might actually just be making things too complex. It also potentially makes things slower, and may make your overall app harder to manage. 
+So if you are absolutely sure you will never be interested in scaling your app, then think carefully about whether or not you even need an API.

@@ -1,0 +1,3 @@
+#flask loggin is mainly used for session management for the users 
+#for eg if user loggin into a particular application until he logges out the entire session will be managed and that session management is done by this flask login.
+#common task like loggin in,loggin out as well as rememberance of the users ssssion.
