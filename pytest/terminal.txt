@@ -1,0 +1,23 @@
+pip install -U pytest
+
+pytest app.py
+
+
+Grouping test name by substring matching
+..........................................
+
+pytest -k test1 -v    #here -k means keyword and test1 is substring 
+
+by using marker
+---------------
+
+pytest -m method2 -v
+
+
+how to create test function
+how to test file
+how to run multiple file at a time
+how to run a particular function that consist of a specific substring
+how to create fixture
+how to use fixture
+implementation of pytest in flask app
